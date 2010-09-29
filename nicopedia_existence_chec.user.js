@@ -124,8 +124,9 @@ LazyLoader.prototype = {
       this._scrollCallback.splice(idx, 1);
   },
   pushElements: function(elems) {
+    let root = this.root;
     let objs = Array.map(elems, function(e) {
-                           let pos = getOffset(e, this.root);
+                           let pos = getOffset(e, root);
                            return { top: pos.top, elem: e };
                          });
     let comparer = function(a, b) a.top - b.top;
